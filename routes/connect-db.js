@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 function connectDB(){
     const con = mysql.createConnection({
-        host: "us-cdbr-east-05.cleardb.net",
-        user: "b2de29649f2819",
-        password: "243927d3"
+        host: process.env.host,
+        user: process.env.user,
+        password: process.env.password
     });
     
     con.connect(function (err) {
