@@ -8,10 +8,10 @@ function connectDB() {
     // });
 
     var db_config = {
-        host: process.env.host,
-        user: process.env.user,
-        password: process.env.password,
-        database: process.env.database
+        host: "us-cdbr-east-05.cleardb.net",
+        user: "b2de29649f2819",
+        password: "243927d3",
+        database: "heroku_864d8a7fa6a6bdf"
     };
 
     var connection;
