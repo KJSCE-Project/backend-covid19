@@ -1,13 +1,13 @@
 var mysql = require("mysql2");
 
-var connection = mysql.createConnection({
+var conn = mysql.createConnection({
     host: "localhost",
     user: "abhirajkale",
     password: "abhirajkale",
     database: "Covid_19_local"
 });
 
-connection.connect((err) => {
+conn.connect((err) => {
     if (err) {
       console.log("Error occurred", err);
     } else {
@@ -15,4 +15,4 @@ connection.connect((err) => {
     }
 });
 
-module.exports = connection;
+module.exports = conn;

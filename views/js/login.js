@@ -1,5 +1,5 @@
 const host = 'http://127.0.0.1:3000';
-const api = '/api/v1';
+const api = '';
 
 const path = host + api;
 

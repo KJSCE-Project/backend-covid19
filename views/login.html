@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
 </head>
 
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
@@ -37,7 +37,7 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Employee Login</h4>
                                     </div>
-                                    <form class="user" action="http://127.0.0.1:3000/api/v1/login" method="post">
+                                    <form class="user" action="http://127.0.0.1:3000/login" method="post">
                                         <div class="mb-3"><input class="form-control form-control-user" type="text"
                                                 id="user_email" required aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="user_email"></div>
@@ -51,7 +51,8 @@
                                                         class="form-check-label custom-control-label"
                                                         for="formCheck-1">Remember Me</label></div>
                                             </div>
-                                        </div><input type="submit" class="btn btn-primary d-block btn-user w-100"
+                                        </div>
+                                        <input type="submit" class="btn btn-primary d-block btn-user w-100"
                                         onclick="loginUser(this)">Login</button>
                                         <hr>
                                     </form>
@@ -76,12 +77,12 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Admin Login</h4>
                                     </div>
-                                    <form class="user" action="index.html">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="email"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." name="email"></div>
+                                    <form class="user" action="http://127.0.0.1:3000/adminLogin" method="post">
+                                        <div class="mb-3"><input class="form-control form-control-user" type="text"
+                                                id="admin_user" aria-describedby="emailHelp"
+                                                placeholder="Enter Admin Username.." name="admin_user"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password"
-                                                id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                                id="admin_password" placeholder="Password" name="admin_password"></div>
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input

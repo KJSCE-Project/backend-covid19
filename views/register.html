@@ -33,30 +33,39 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Employee Account</h4>
                             </div>
-                            <form class="user">
+                            <form class="user" action="http://127.0.0.1:3000/register" method="post">
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
-                                            type="text" id="exampleFirstName" placeholder="First Name"
+                                            type="text" id="exampleFirstName" required placeholder="First Name"
                                             name="first_name"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text"
-                                            id="exampleFirstName" placeholder="Last Name" name="last_name"></div>
+                                            id="exampleFirstName" required placeholder="Last Name" name="last_name">
+                                    </div>
                                 </div>
                                 <div class="mb-3"><input class="form-control form-control-user" type="email"
-                                        id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address"
-                                        name="email"></div>
+                                        id="exampleInputEmail" required aria-describedby="emailHelp"
+                                        placeholder="Email Address" name="email"></div>
                                 <div class="row mb-3">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
-                                            type="password" id="examplePasswordInput" placeholder="Password"
+                                            type="password" id="examplePasswordInput" required placeholder="Password"
                                             name="password"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password"
-                                            id="exampleRepeatPasswordInput" placeholder="Repeat Password"
-                                            name="password_repeat"></div>
+                                    <div class="row m-2 mt-4 mb-2 w-50">
+                                        <select name="gender" class="form-select" aria-label="Gender">
+                                            <option selected>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="number" min="18"
+                                    id="age" required aria-describedby="age"
+                                    placeholder="Enter age" name="age"></div>
                                 <div class="mb-3"><input class="form-control form-control-user" type="text"
-                                        id="department" aria-describedby="emailHelp" placeholder="Department"
+                                        id="department" aria-describedby="emailHelp" required placeholder="Department"
                                         name="department"></div>
                                 <div class="mb-3"><input class="form-control form-control-user" type="text"
-                                        id="position" aria-describedby="position" placeholder="Position"
+                                        id="position" aria-describedby="position" required placeholder="Position"
                                         name="Position"></div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Employee Profile Picture</label>
