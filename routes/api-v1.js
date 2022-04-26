@@ -1,11 +1,17 @@
 var express = require('express');
+const app = express();
+
 var router = express.Router();
 const connection = require('./connect-db');
 
-connection.executeQuery();
+app.use(express.json());      
+app.use(express.urlencoded());
 
-router.get('/', (req, res)=>{
-    res.end('sample api')
+router.post('/login', (req, res)=>{
+    const email = req.body.user_email;
+    const password = req.body.user_password;
+
+    res.end(email + password)
 })
 
 module.exports = router; 

@@ -1,29 +1,18 @@
-const mysql = require('mysql');
+var mysql = require("mysql2");
 
-// Initialize pool
-var pool = mysql.createPool({
-    connectionLimit: 10,
-    host: "us-cdbr-east-05.cleardb.net",
-    user: "b2de29649f2819",
-    password: "243927d3",
-    database: "heroku_864d8a7fa6a6bdf",
-    debug: false
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "abhirajkale",
+    password: "abhirajkale",
+    database: "Covid_19_local"
 });
-exports.executeQuery = function (query, callback) {
-    pool.getConnection(function (err, connection) {
-        if (err) {
-            connection.release();
-            throw err;
-        }
-        connection.query(query, function (err, rows) {
-            connection.release();
-            if (!err) {
-                callback(null, { rows: rows });
-            }
-        });
-        connection.on('error', function (err) {
-            throw err;
-            return;
-        });
-    });
-}
+
+connection.connect((err) => {
+    if (err) {
+      console.log("Error occurred", err);
+    } else {
+      console.log("Connected to MySQL Server");
+    }
+});
+
+module.exports = connection;
