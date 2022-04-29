@@ -24,19 +24,21 @@
                 <div class="text-center">
                   <h4 class="text-dark mb-4">Update your daily Health Status</h4>
                 </div>
-                <form class="user">
+                <form class="user" action="http://127.0.0.1:3000/healthStatus" method="post">
                   <div class="form-check">
                     <label class="form-check-label">
                       Do you have any Chest Pain?
                     </label>
                     <br>
-                    <div class="form-check form-check-inline justify">
-                      <input class="form-check-input" type="radio" name="chest_pain" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="chest_pain" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline justify">
+                        <input class="form-check-input" required type="radio" name="chest_pain" id="inlineRadio1" value="Y">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="chest_pain" id="inlineRadio2" value="N">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                      </div>
                     </div>
                   </div>
                   <br>
@@ -45,29 +47,22 @@
                       Feeling Fatigued?
                     </label>
                     <br>
-                    <div class="form-check form-check-inline justify">
-                      <input class="form-check-input" type="radio" name="fatigue" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline justify">
+                        <input class="form-check-input" required type="radio" name="fatigue" id="inlineRadio1" value="Y">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="fatigue" id="inlineRadio2" value="N">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                      </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="fatigue" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
-                    </div>
+
                   </div>
                   <br>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      High Temperature?
-                    </label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="temp" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="temp" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
-                    </div>
+                  <div class="m-3 mt-0 mb-0">
+                    <label for="exampleInputEmail1" class="form-label">Temperature</label>
+                    <input type="text" class="form-control" name="temp" id="temp" aria-describedby="temp">
                   </div>
                   <br>
                   <div class="form-check">
@@ -75,15 +70,17 @@
                       Is there any Short Breath?
                     </label>
                     <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="short_breath" id="inlineRadio1"
-                        value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="short_breath" id="inlineRadio2"
-                        value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="short_breath" id="inlineRadio1"
+                          value="Y">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="short_breath" id="inlineRadio2"
+                          value="N">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                      </div>
                     </div>
                   </div>
                   <br>
@@ -92,13 +89,15 @@
                       Do you have any Cough?
                     </label>
                     <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="cough" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="cough" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="cough" id="inlineRadio1" value="Y">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="cough" id="inlineRadio2" value="N">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                      </div>
                     </div>
                   </div>
                   <br>
@@ -107,28 +106,15 @@
                       Is there any Tiredness?
                     </label>
                     <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="tiredness" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="tiredness" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      Any loss of speech or mobility?
-                    </label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="speech" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="speech" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="tiredness" id="inlineRadio1" value="Y">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="tiredness" id="inlineRadio2" value="N">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                      </div>
                     </div>
                   </div>
                   <br>
@@ -137,13 +123,15 @@
                       Body Ache/Pain?
                     </label>
                     <br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="pain" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="pain" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
+                    <div class="form-group">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required type="radio" name="pain" id="inlineRadio1" value="Y">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" required required type="radio" name="pain" id="inlineRadio2" value="N">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                      </div>
                     </div>
                   </div>
               </div><button class="btn btn-dark d-block btn-user w-100" type="submit">Submit</button>
