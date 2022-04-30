@@ -25,16 +25,18 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i
+                    <li class="nav-item" id="dashboard"><a class="nav-link" href="index.html"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i
+                    <li class="nav-item" id="profile"><a class="nav-link" href="profile.html"><i
                                 class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="table.html"><i
-                                class="fas fa-table"></i><span>Table</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i
-                                class="far fa-user-circle"></i><span>Login</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html"><i
-                                class="fas fa-user-circle"></i><span>Register</span></a></li>
+                    <li class="nav-item" id="user_table" ><a class="nav-link active" href="table.html"><i
+                               class="fas fa-table"></i><span>Table</span></a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="login.html"><i
+                            id=""    class="far fa-user-circle"></i><span>Login</span></a></li> -->
+                    <li class="nav-item" id="register"><a class="nav-link" href="register.html"><i
+                                class="fas fa-user-circle"></i><span>Register Employee</span></a></li>
+                    <li class="nav-item" id="health_status"><a class="nav-link" href="form.html"><i
+                               class="fas fa-user-circle"></i><span>Update Health Status</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
                         id="sidebarToggle" type="button"></button></div>
@@ -82,8 +84,11 @@
                                             class="dropdown-item" href="#"><i
                                                 class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity
                                             log</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
-                                                class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="
+                                                document.cookie = 'user_id' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                                                document.cookie = 'admin_login' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                                                window.location.href = 'http://127.0.0.1:5500/views/login.html';"><i
+                                                    class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
                                     </div>
                                 </div>
                             </li>

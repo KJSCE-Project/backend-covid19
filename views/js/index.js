@@ -2,6 +2,10 @@ const host = 'http://127.0.0.1:3000';
 const api = '/api/v1';
 path = host + api;
 
+if (document.cookie.indexOf('admin_login') == -1) {
+    window.location.href = "http://127.0.0.1:5500/views/login.html";
+}
+
 function changeChart(ele){
     var id = $(ele).attr("id");
     var dept = $(ele).html();
@@ -249,7 +253,7 @@ function getEmployees(){
                 
                 symp_per = (key[1]/tot)*100;
                 symp_per = Math.round(symp_per * 10) / 10;
-                
+
                 $('#symptoms_list').append(`
                 <h4 class="small fw-bold">${obj}<span class="float-end">${symp_per}%</span></h4>
                 <div class="progress mb-4">

@@ -19,7 +19,7 @@ router.post('/login', (req, res) => {
       res.end('<h1>Account not found</h1><button onclick="history.go(-1);">Try again</button>')
     } else {
       res.cookie("user_id", result[0].EMPLOYEE_ID);
-      res.redirect('http://127.0.0.1:5500/views/index.html');
+      res.redirect('http://127.0.0.1:5500/views/profile.html');
     }
 
   });
@@ -30,6 +30,7 @@ router.post('/adminLogin', (req, res) => {
   const password = req.body.admin_password;
 
   if (user == "admin" && password == "admin") {
+    res.cookie("admin_login", true);
     res.redirect('http://127.0.0.1:5500/views/index.html');
   } else {
     res.end('<h1>Account not found</h1><button onclick="history.go(-1);">Try again</button>')

@@ -10,6 +10,13 @@ const validateEmail = (email) => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
+  
+  if (document.cookie.indexOf('user_id') != -1 ) {
+    window.location.href = "http://127.0.0.1:5500/views/profile.html";
+  }
+  if (document.cookie.indexOf('admin_login') != -1 ) {
+    window.location.href = "http://127.0.0.1:5500/views/index.html";
+  }
 function loginUser(e){
     const email = document.getElementById('user_email').value;
     const password = document.getElementById('user_password').value;

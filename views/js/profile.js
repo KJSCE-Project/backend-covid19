@@ -8,6 +8,10 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+if (document.cookie.indexOf('user_id') == -1) {
+    window.location.href = "http://127.0.0.1:5500/views/login.html";
+}
+
 $.ajax({
     url: path + "/getProfileDetails",
     type: "post",

@@ -7,6 +7,23 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
+if (document.cookie.indexOf('user_id') == -1 && document.cookie.indexOf('admin_login') == -1) {
+    window.location.href = "http://127.0.0.1:5500/views/login.html";
+}
+if (document.cookie.indexOf('user_id') != -1) {
+    $('#dashboard').hide();
+    $('#profile').show();
+    $('#user_table').show();
+    $('#register').hide();
+    $('#health_status').show();
+} else {
+    $('#dashboard').show();
+    $('#profile').hide();
+    $('#user_table').show();
+    $('#register').show();
+    $('#health_status').hide();
+
+}
 
 $.ajax({
     url: path + "/getEmployees",
