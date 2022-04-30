@@ -53,27 +53,47 @@ router.post('/register', (req, res) => {
       res.end('<h1>Department not found</h1><button onclick="history.go(-1);">Try again</button>')
     } else {
       var sql = "INSERT INTO EMPLOYEE (EMAIL, FIRST_NAME, LAST_NAME, GENDER, PASSWORD, DEPT_ID, AGE, POSITION) VALUES ?";
+      console.log(result[0])
       var values = [
-        [email, first_name, last_name, gender, password, 2, age, Position],
+        [email, first_name, last_name, gender, password, result[0].DEPT_ID, age, Position],
       ];
       conn.query(sql, [values], function (err, result) {
         if (err) {
           res.send(err)
           throw err
         };
-        if (result.affectedRows == 1)
-          res.redirect("http://127.0.0.1:5500/views/profile.html");
-        else res.json(result)
+        if(result.affectedRows == 1){
+          var sql = "SELECT EMPLOYEE_ID FROM EMPLOYEE WHERE EMAIL='" + email + "' AND PASSWORD='" + password + "'";
+          conn.query(sql, [], function (err, result) {
+              if (result.length > 0) {
+                console.log('in')
+                var sql = "INSERT INTO COVID (EMPLOYEE_ID, SHORT_BREATH, DRY_COUGH, TEMP, FATIGUE, CHEST_PAIN, BODY_PAIN, TIREDNESS, PERCENTAGE) VALUES ?";
+                var values = [
+                  [result[0].EMPLOYEE_ID, 'N', 'N', 'N', 'N', 'N', 'N', 'N', 0],
+                ];
+                conn.query(sql, [values], function (err, result) {
+                  if (err) {
+                    res.send(err)
+                    throw err
+                  };
+                  if (result.affectedRows == 1)
+                    res.redirect("http://127.0.0.1:5500/views/profile.html");
+                  else res.json(result)
+                });
+              }
+              else res.json(result.affectedRows);            
+          })
+        }
       });
     }
   });
 
 })
-var get_cookies = function(request) {
+var get_cookies = function (request) {
   var cookies = {};
-  request.headers && request.headers.cookie.split(';').forEach(function(cookie) {
+  request.headers && request.headers.cookie.split(';').forEach(function (cookie) {
     var parts = cookie.match(/(.*?)=(.*)$/)
-    cookies[ parts[1].trim() ] = (parts[2] || '').trim();
+    cookies[parts[1].trim()] = (parts[2] || '').trim();
   });
   return cookies;
 };
@@ -87,8 +107,9 @@ router.post('/healthStatus', (req, res) => {
   var tiredness = req.body.tiredness;
 
   var employee_id = parseInt(get_cookies(req)['user_id']);
-  
+
   var sql = `UPDATE COVID SET SHORT_BREATH = '${short_breath}',  DRY_COUGH ='${cough}',  TEMP = '${temp}',  FATIGUE = '${fatigue}',  CHEST_PAIN = '${chest_pain}',  BODY_PAIN = '${pain}', TIREDNESS = '${tiredness}' WHERE EMPLOYEE_ID = ${employee_id};`;
+  console.log(sql)
   var values = [
     [short_breath, cough, temp, fatigue, chest_pain, pain, tiredness, employee_id],
   ];

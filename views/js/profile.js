@@ -17,7 +17,7 @@ $.ajax({
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (response) {
-        console.log(response)
+        
         result = response.result;
         const first_name = result.FIRST_NAME;
         const last_name = result.LAST_NAME;
@@ -60,5 +60,61 @@ $.ajax({
             $('#zone').addClass('text-success')
             $('#zone').html('Green Zone')
         }
+
+        var hashMap = {
+            temp: 0,
+            short_breath: 0,
+            dry_cough: 0,
+            chest_pain: 0,
+            fatigue: 0,
+            body_pain: 0,
+            tiredness: 0
+        }
+        var symptoms = {
+            temp: "High Temperature",
+            short_breath: "Short Breath",
+            dry_cough: "Dry Cough",
+            chest_pain: "Chest Pain",
+            fatigue: "Fatigue",
+            body_pain: "Body Pain",
+            tiredness: "Tiredness"
+        }
+        console.log(response)
+
+        var row = response.result;
+
+        if (row.TEMP > 99) hashMap.temp++;
+        if (row.SHORT_BREATH == 'Y') hashMap.short_breath++;
+        if (row.DRY_COUGH == 'Y') hashMap.dry_cough++;
+        if (row.CHEST_PAIN == 'Y') hashMap.chest_pain++;
+        if (row.FATIGUE == 'Y') hashMap.fatigue++;
+        if (row.BODY_PAIN == 'Y') hashMap.body_pain++;
+        if (row.TIREDNESS == 'Y') hashMap.tiredness++;
+
+        let sortable = [];
+            for (var vehicle in hashMap) {
+                sortable.push([vehicle, hashMap[vehicle]]);
+            }
+
+            sortable.sort(function(a, b) {
+                return a[1] - b[1];
+            });
+            
+            $('#symptoms_list').html('');
+            sortable.reverse().forEach(key=>{
+                obj = (""+Object.values(symptoms[key[0]])).replace(/,/g, '');
+                
+                symp_per = (key[1]/1)*100;
+                symp_per = Math.round(symp_per * 10) / 10;
+                
+                $('#symptoms_list').append(`
+                <h4 class="small fw-bold">${obj}<span class="float-end">${symp_per==100?"Showing Symptom":"No Symptom"}</span></h4>
+                <div class="progress mb-4">
+                    <div class="progress-bar bg-primary bg-gradient" aria-valuenow="${symp_per}%" aria-valuemin="0"
+                        aria-valuemax="100" style="width: ${symp_per}%;"><span
+                            class="visually-hidden">${symp_per}</span></div>
+                </div>
+                `);
+            });
     }
 });

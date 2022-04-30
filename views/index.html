@@ -88,7 +88,7 @@
                         <div class="col">
                             <div class="row" id="dept_row">
                                 <div class="row">
-                                    <div class="col-md-6 col-xl-3 mb-4">
+                                    <div class="col-md-6 col-xl-6 mb-4">
                                         <div class="card shadow border-start-primary py-2">
                                             <div class="card-body">
                                                 <div class="row align-items-center no-gutters">
@@ -111,62 +111,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-warning text-black shadow">
+                                <h4 class="text-dark mb-3">Departments</h4>
+                                 <div class="col-lg-6 mb-4" onclick="getEmployees()">
+                                    <div class="card textwhite bg-dark text-white shadow">
                                         <div class="card-body">
-                                            <p class="m-0">Marketing</p>
-                                            <p class="text-black-50 small m-0">40</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card shadow mb-4">
-                                        <div class="card-header py-3">
-                                            <h6 class="text-primary fw-bold m-0">Top Symptoms</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="small fw-bold">Fatigue<span class="float-end">30%</span></h4>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width: 30%;"><span
-                                                        class="visually-hidden">30%</span></div>
-                                            </div>
-                                            <h4 class="small fw-bold">Dry Cough<span class="float-end">10%</span></h4>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width: 10%;"><span
-                                                        class="visually-hidden">10%</span></div>
-                                            </div>
-                                            <h4 class="small fw-bold">Cold<span class="float-end">5%</span></h4>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width: 5%;"><span
-                                                        class="visually-hidden">5%</span></div>
-                                            </div>
-                                            <h4 class="small fw-bold">Fever<span class="float-end">3%</span></h4>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width: 3%;"><span
-                                                        class="visually-hidden">3%</span></div>
-                                            </div>
-                                            <h4 class="small fw-bold">Body Pain<span class="float-end">2%</span></h4>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width: 2%;"><span
-                                                        class="visually-hidden">2%</span></div>
-                                            </div>
+                                            <p class="m-0" style='cursor: pointer'>Employees</p>
+                                            <p class="text-black-50 small m-0"></p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                
                             </div>
                         </div>
 
                         <div class="col-lg-5 col-xl-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0" id="heading_chart">Gross Employee Zone Distribution</h6>
+                                    <h6 class="text-primary fw-bold m-0" id="heading_chart">Employee Wise Zone Distribution</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle"
                                             aria-expanded="false" data-bs-toggle="dropdown" type="button"><i
                                                 class="fas fa-ellipsis-v text-gray-400"></i></button>
@@ -188,6 +151,20 @@
                                             class="me-2"><i class="fas fa-circle text-success"></i>&nbsp;Green
                                             Zone</span><span class="me-2"><i
                                                 class="fas fa-circle text-warning"></i>&nbsp;Yellow Zone</span></div>
+                                </div>
+                            </div>
+                        </div><div class="col-lg-3 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="text-primary fw-bold m-0">Top Symptoms</h6>
+                                </div>
+                                <div class="card-body" id="symptoms_list">
+                                    <!-- <h4 class="small fw-bold">Fatigue<span class="float-end">30%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 30%;"><span
+                                                class="visually-hidden">30%</span></div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
