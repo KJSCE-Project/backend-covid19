@@ -34,14 +34,30 @@ $.ajax({
         var result = response.result
         console.log(result.length)
         result.forEach(row => {
+            var div;
+            if(row.PERCENTAGE > 70){
+                div = `
+                    <label class='text-danger'>Red Zone</label>
+                `;
+            }else if (row.PERCENTAGE > 40){
+                div = `
+                    <label class='text-warning'>Yellow Zone</label>
+                `;
+            }else{
+                div = `
+                    <label class='text-success'>Green Zone</label>
+                `;
+            }
+console.log(row)
             $('#emp_table').append(`
             <tr>
                 <td>${row.FIRST_NAME} ${row.LAST_NAME}</td>
                 <td>${row.POSITION}</td>
                 <td>${row.DEPT_NAME}</td>
                 <td>${row.AGE}</td>
-                <td>2022/11/28</td>
-                <td class="">${row.PERCENTAGE}</td>
+                <td>${(row.last_updated).substring(0,10)}</td>
+                <td class="">${row.PERCENTAGE}%</td>
+                <td class="">${div}</td>
             </tr>            
             `)
         });

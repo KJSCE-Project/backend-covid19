@@ -33,7 +33,7 @@ router.post('/adminLogin', (req, res) => {
     res.cookie("admin_login", true);
     res.redirect('http://127.0.0.1:5500/views/index.html');
   } else {
-    res.end('<h1>Account not found</h1><button onclick="history.go(-1);">Try again</button>')
+    res.end('<h1>Incorrect Admin Credentials.</h1><button onclick="history.go(-1);">Try again</button>')
   }
 })
 

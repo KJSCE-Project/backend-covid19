@@ -32,6 +32,9 @@ $.ajax({
         const department = response.department;
         const user_id = result.EMPLOYEE_ID;
 
+        $('#profile-name').html(first_name+" "+last_name)
+        $('#photo-name').html(first_name+" "+last_name)
+
         document.getElementById('first_name').value = first_name;
         document.getElementById('last_name').value = last_name;
         document.getElementById('password').value = password;
