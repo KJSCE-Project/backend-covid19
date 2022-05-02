@@ -81,7 +81,7 @@ router.post('/getEmpNumber', function (req, res) {
             res.end('<h1>Employees not found</h1><button onclick="history.go(-1);">Try again</button>')
         } else {
             res.json({
-                "result": result[0]
+                "result": result
             });
         }
     });
